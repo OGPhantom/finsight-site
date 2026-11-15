@@ -1,0 +1,454 @@
+/* FinSight site.
+   Brand tokens follow the app's redesign proposal (FinSight/Design/Redesign/system/DESIGN.md,
+   15 Nov 2026, not yet approved). Every brand decision is a token in :root, so swapping the
+   look means editing this block and the two @font-face rules, nothing else. */
+
+@font-face {
+  font-family: "Fixel FS Display";
+  src: url("fonts/FixelFSDisplay-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fixel FS Display";
+  src: url("fonts/FixelFSDisplay-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --ground: #F5F7FA;
+  --surface: #FFFFFF;
+  --edge: rgb(20 23 28 / 0.07);
+  --hairline: #E4E8EE;
+  --fill: rgb(20 23 28 / 0.06);
+  --fill-strong: rgb(20 23 28 / 0.10);
+  --ink: #14171C;
+  --ink2: #5B6472;
+  --ink3: #7F8896;
+  --accent: #4453E0;
+  --accent-fill: #4453E0;
+  --accent-fill-hover: #3644C9;
+  --on-accent: #FFFFFF;
+
+  /* The strip: the demo month of the redesign frames (35 / 30 / 14 / 5 / 5 / rest 11). */
+  --c-shopping: #8756B1;
+  --c-groceries: #4E8F4B;
+  --c-home: #1C5248;
+  --c-dining: #C46A35;
+  --c-subscriptions: #5648A8;
+
+  --font-brand: "Fixel FS Display", ui-sans-serif, system-ui, sans-serif;
+  --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-code: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --r-group: 24px;
+  --r-inner: 10px;
+  --r-strip: 4px;
+  --r-icon: 7px;
+
+  --gutter: 16px;
+  --column: 42rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #14171C;
+    --surface: #1D2129;
+    --edge: rgb(255 255 255 / 0.05);
+    --hairline: #2C313B;
+    --fill: rgb(255 255 255 / 0.09);
+    --fill-strong: rgb(255 255 255 / 0.15);
+    --ink: #F2F4F7;
+    --ink2: #A4ACB9;
+    --ink3: #737B89;
+    --accent: #8E98FF;
+    --accent-fill: #4F5DE8;
+    --accent-fill-hover: #4150D6;
+
+    --c-shopping: #9A68C8;
+    --c-groceries: #57A054;
+    --c-home: #2A7A6C;
+    --c-dining: #D46F3A;
+    --c-subscriptions: #725ABD;
+  }
+}
+
+/* ───────────── base ───────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--ground);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+}
+
+::selection { background: color-mix(in srgb, var(--accent) 24%, transparent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+a:hover { text-decoration-color: currentColor; }
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--column) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* ───────────── header ───────────── */
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-right: auto;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.005em;
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-icon);
+  display: block;
+}
+
+.pages {
+  order: 3;
+  flex-basis: 100%;
+  display: flex;
+  gap: 4px;
+  margin-left: -12px;
+}
+
+.pages a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--ink2);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.pages a:hover { color: var(--ink); }
+
+.pages a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Language: a segmented control, the same place on every page. */
+.lang {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--fill);
+}
+
+.lang a,
+.lang span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 15px;
+  line-height: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lang a { color: var(--ink2); }
+.lang a:hover { color: var(--ink); }
+
+.lang span {
+  color: var(--ink);
+  font-weight: 600;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--edge);
+}
+
+@media (min-width: 720px) {
+  .top { padding-top: 20px; padding-bottom: 20px; }
+  .pages { order: 0; flex-basis: auto; margin: 0 8px 0 0; }
+}
+
+/* ───────────── content ───────────── */
+
+main {
+  flex: 1 0 auto;
+  padding-top: 24px;
+  padding-bottom: 64px;
+}
+
+h1, h2 {
+  font-family: var(--font-brand);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 41px;
+  letter-spacing: -0.012em;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.005em;
+  margin: 44px 0 10px;
+  scroll-margin-top: 24px;
+}
+
+p, ul { margin: 0 0 14px; }
+
+ul { padding-left: 1.25em; }
+li { margin-bottom: 6px; padding-left: 2px; }
+li::marker { color: var(--ink3); }
+
+strong { font-weight: 600; }
+
+code {
+  font-family: var(--font-code);
+  font-size: 0.88em;
+  padding: 0.1em 0.25em;
+  border-radius: 6px;
+  background: var(--fill);
+  white-space: nowrap;
+}
+
+.lead {
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink2);
+  text-wrap: pretty;
+  margin-bottom: 0;
+}
+
+.meta {
+  font-size: 15px;
+  color: var(--ink2);
+}
+
+/* A grouped cell: the app's one surface over the ground, separated by its edge, never a shadow. */
+.cell {
+  background: var(--surface);
+  border-radius: var(--r-group);
+  box-shadow: inset 0 0 0 1px var(--edge);
+  padding: 18px 20px;
+  margin: 28px 0 0;
+}
+
+.cell p:last-child { margin-bottom: 0; }
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+
+.rows li {
+  margin: 0;
+  padding: 14px 20px 15px 0;
+}
+
+.rows li + li { border-top: 1px solid var(--hairline); }
+
+.rows h2 {
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: 0;
+  margin: 0 0 3px;
+}
+
+.rows p {
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--ink2);
+  margin: 0;
+}
+
+.cell.list { padding: 4px 0; }
+
+/* The one primary action of a page. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out);
+}
+
+.button:hover { background: var(--accent-fill-hover); }
+
+.actions { margin: 28px 0 0; }
+
+/* ───────────── home ───────────── */
+
+.hero h1 { margin-bottom: 14px; }
+
+.strip {
+  display: flex;
+  gap: 3px;
+  height: 16px;
+  margin: 36px 0 0;
+}
+
+.strip i {
+  display: block;
+  flex: var(--w) 0 0;
+  border-radius: var(--r-strip);
+  background: var(--k);
+  transform-origin: left center;
+  animation: segment 900ms var(--ease-out) both;
+  animation-delay: calc(var(--n) * 70ms + 120ms);
+}
+
+@keyframes segment {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip i { animation: appear 400ms linear both; animation-delay: 0ms; }
+  .button { transition: none; }
+}
+
+.status {
+  margin: 16px 0 0;
+  text-wrap: balance;
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  color: var(--ink);
+}
+
+.home .cell.list { margin-top: 44px; }
+
+@media (min-width: 720px) {
+  main { padding-top: 48px; padding-bottom: 96px; }
+
+  h1 {
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: -0.02em;
+  }
+
+  .lead { font-size: 20px; }
+  .strip { height: 20px; margin-top: 44px; }
+  .home .cell.list { margin-top: 56px; }
+}
+
+/* ───────────── footer ───────────── */
+
+.foot {
+  padding-bottom: 32px;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--ink2);
+}
+
+.foot nav {
+  border-top: 1px solid var(--hairline);
+  padding-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-bottom: 12px;
+}
+
+.foot nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.foot nav a:hover { color: var(--accent); }
+
+.foot p { margin: 0; }
+
+/* ───────────── redirect page ───────────── */
+
+.moved { padding-top: 48px; }
