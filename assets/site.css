@@ -212,7 +212,11 @@ a:hover { text-decoration-color: currentColor; }
   white-space: nowrap;
 }
 
-.lang a { color: var(--ink2); }
+.lang a {
+  min-height: 44px;
+  margin: -3px 0;
+  color: var(--ink2);
+}
 .lang a:hover { color: var(--ink); }
 
 .lang span {
@@ -243,7 +247,7 @@ h1, h2 {
 
 h1 {
   font-weight: 700;
-  font-size: 34px;
+  font-size: clamp(28px, 10vw, 34px);
   line-height: 41px;
   letter-spacing: -0.012em;
   margin: 0 0 12px;
