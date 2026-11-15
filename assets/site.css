@@ -1,7 +1,5 @@
-/* FinSight site.
-   Brand tokens follow the app's redesign proposal (FinSight/Design/Redesign/system/DESIGN.md,
-   15 Nov 2026, not yet approved). Every brand decision is a token in :root, so swapping the
-   look means editing this block and the two @font-face rules, nothing else. */
+/* FinSight site. The look follows the app's design system. Every brand decision is a token
+   in :root (and the two @font-face rules), so changing the look never touches the markup. */
 
 @font-face {
   font-family: "Fixel FS Display";
