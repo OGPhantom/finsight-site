@@ -3,54 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
 <title>Support · FinSight</title>
 <meta name="description" content="Help with FinSight, the private expense tracker for iPhone.">
-<link rel="icon" type="image/png" href="img/icon.png">
-<link rel="apple-touch-icon" href="img/icon.png">
-<link rel="stylesheet" href="style.css">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14171C" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://ogphantom.github.io/finsight-site/support.html">
+<link rel="alternate" hreflang="uk" href="https://ogphantom.github.io/finsight-site/uk/support.html">
+<link rel="alternate" hreflang="en" href="https://ogphantom.github.io/finsight-site/support.html">
+<link rel="alternate" hreflang="x-default" href="https://ogphantom.github.io/finsight-site/support.html">
+<link rel="icon" type="image/png" href="img/icon-96.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/FixelFSDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=c35b867e">
+<script src="assets/site.js?v=9045a5f6" defer></script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FinSight">
+<meta property="og:title" content="Support · FinSight">
+<meta property="og:description" content="Help with FinSight, the private expense tracker for iPhone.">
+<meta property="og:url" content="https://ogphantom.github.io/finsight-site/support.html">
+<meta property="og:image" content="https://ogphantom.github.io/finsight-site/img/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<main>
-  <header class="site">
-    <a class="wordmark" href="./"><img src="img/icon.png" alt="">FinSight</a>
-    <nav><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
-  </header>
+<header class="wrap top">
+  <a class="brand" href="./"><img src="img/icon-96.png" alt="" width="32" height="32">FinSight</a>
+  <nav class="pages" aria-label="Pages">
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html" aria-current="page">Support</a>
+  </nav>
+  <nav class="lang" aria-label="Language">
+    <a href="uk/support.html" hreflang="uk" lang="uk" data-lang="uk">Українська</a>
+    <span lang="en" aria-current="true">English</span>
+  </nav>
+</header>
 
-  <h1>Support</h1>
-  <p class="lead">Something not working, or an idea for FinSight? Write to
-  <a href="mailto:storschajnikita@gmail.com">storschajnikita@gmail.com</a>.
-  Please include your iPhone model and iOS version.</p>
+<main class="wrap">
+<h1>Support</h1>
+<p class="lead">Something not working, or an idea for FinSight? Write to
+<a href="mailto:storschajnikita@gmail.com">storschajnikita@gmail.com</a> in English or Ukrainian.
+Please include your iPhone model and iOS version.</p>
+<p class="actions"><a class="button" href="mailto:storschajnikita@gmail.com?subject=FinSight">Write to support</a></p>
 
-  <h2>Connecting monobank</h2>
-  <p>Open Settings → Monobank in FinSight and follow the steps; you confirm
-  the connection in the mono app. FinSight only reads your accounts and
-  statement; it cannot make payments. Because monobank lets apps ask for a
-  statement about once a minute, a first import of several months can take
-  several minutes; FinSight shows how long is left.</p>
+<h2 id="monobank">Connecting monobank</h2>
+<p>Open Settings → Monobank in FinSight and follow the steps; you approve the
+connection in the mono app. FinSight only reads your accounts and statement; it
+cannot make payments. The bank limits how often an app can ask for a statement,
+so a first import of several months can take several minutes; FinSight shows
+how long is left.</p>
 
-  <h2>Apple Pay Auto-Log</h2>
-  <p>Settings → Apple Pay Auto-Log in FinSight shows how to set up a Shortcuts
-  automation that records every contactless Apple Pay payment, from any bank,
-  without opening the app.</p>
+<h2 id="apple-pay">Apple Pay Auto-Log</h2>
+<p>Settings → Apple Pay Auto-Log in FinSight shows how to set up a Shortcuts
+automation that records every contactless Apple Pay payment, from any bank,
+without opening the app.</p>
 
-  <h2>AI reports</h2>
-  <p>The comment in a report is written by Apple Intelligence on your iPhone.
-  It needs an iPhone that supports Apple Intelligence with it turned on; the
-  report's figures work on every iPhone.</p>
+<h2 id="reports">AI reports</h2>
+<p>The comment in a report is written by Apple Intelligence on your iPhone. It
+needs an iPhone that supports Apple Intelligence with it turned on; the
+report’s figures work on every iPhone.</p>
 
-  <h2>Your data</h2>
-  <p>Everything stays on your iPhone. See the
-  <a href="privacy.html">privacy policy</a>
-  (<a href="privacy-uk.html" lang="uk">українською</a>).</p>
-
-  <h2 lang="uk">Підтримка українською</h2>
-  <p lang="uk">Щось не працює чи є ідея? Напиши на
-  <a href="mailto:storschajnikita@gmail.com">storschajnikita@gmail.com</a> —
-  можна українською. Додай модель iPhone і версію iOS.</p>
-
-  <footer>FinSight · <a href="privacy.html">Privacy</a> ·
-  <a href="mailto:storschajnikita@gmail.com">storschajnikita@gmail.com</a></footer>
+<h2 id="data">Your data</h2>
+<p>Everything stays on your iPhone. See the <a href="privacy.html">privacy policy</a>.</p>
 </main>
+
+<footer class="wrap foot">
+  <nav aria-label="Site">
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:storschajnikita@gmail.com">storschajnikita@gmail.com</a>
+  </nav>
+  <p>FinSight is made in Ukraine.</p>
+</footer>
 </body>
 </html>
