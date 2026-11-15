@@ -77,8 +77,12 @@
   request (which kind of request it is, the access identifier, the account
   identifier and the period of a statement) and a check from Apple (App
   Attest) that the request comes from the genuine FinSight app. It returns the
-  signature, stores nothing and keeps no logs of these details. Your
-  statements, balances and name never pass through it: the app talks to
+  signature and keeps no logs. All it stores is a technical record for each
+  installation of the app: its App Attest key, the environment and app it was
+  issued for, a signature counter and the number of requests in the current
+  hour (deleted after 180 days without use). It never stores request or
+  account identifiers, statements, IP addresses or anything else about you.
+  Your statements, balances and name never pass through it: the app talks to
   monobank directly.</p>
   <p><strong>Through monobank's own page.</strong> FinSight opens the bank's
   page at <code>api.monobank.ua</code> inside the app. You confirm the sign-in
