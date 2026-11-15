@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Privacy Policy · FinSight</title>
+<meta name="description" content="FinSight collects no personal data. Your spending stays on your iPhone.">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="alternate" hreflang="uk" href="privacy-uk.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="site">
+    <a class="wordmark" href="./"><img src="img/icon.png" alt="">FinSight</a>
+    <nav><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="privacy-uk.html" hreflang="uk" lang="uk">Українською</a></nav>
+  </header>
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective 15 November 2026</p>
+
+  <div class="card">
+    <p><strong>In short: FinSight collects no personal data.</strong> It has
+    no account, no analytics, no advertising and no tracking. Your
+    transactions, categories and reports stay on your iPhone.</p>
+  </div>
+
+  <h2>Who we are</h2>
+  <p>FinSight is an expense tracker for iPhone made by Nikita Storchai
+  (ФОП Сторчай Нікіта Павлович), an individual developer in Ukraine.
+  Questions about this policy:
+  <a href="mailto:storschajnikita@gmail.com">storschajnikita@gmail.com</a>.</p>
+
+  <h2>What FinSight stores, and where</h2>
+  <p>Everything below is kept in storage on your iPhone, shared only with
+  FinSight's own widgets. None of it is sent to us or to anyone else.</p>
+  <ul>
+    <li><strong>Your transactions:</strong> amount, currency, date, merchant,
+    category and notes, whether you added them yourself, through Siri or
+    Shortcuts, or imported them from monobank.</li>
+    <li><strong>Your categories and rules</strong>, such as “always put this
+    shop in Groceries”.</li>
+    <li><strong>Your reports</strong> and their AI comments.</li>
+    <li><strong>Your settings:</strong> currency, theme and accent colour.</li>
+  </ul>
+  <p>Like other app data, this can be included in your iPhone's own backups
+  (iCloud or computer), under your control and Apple's privacy terms.</p>
+
+  <h2>Reports and Apple Intelligence</h2>
+  <p>Report figures are counted by FinSight on your iPhone. The optional
+  comment is written by Apple's on-device model (Apple Intelligence). If you
+  translate a comment, Apple's Translation framework does it on the device;
+  iOS may first download the language from Apple. Your spending is not sent to
+  any cloud service.</p>
+
+  <h2>Siri, Shortcuts and Apple Pay auto-log</h2>
+  <p>If you set up a Shortcuts automation for Apple Pay, iOS passes the
+  payment's amount, merchant and card name to FinSight on your iPhone, and
+  FinSight saves them as a transaction. The same happens when you add an
+  expense with Siri or Shortcuts. Nothing leaves your device.</p>
+
+  <h2>Connecting monobank (optional)</h2>
+  <p>FinSight works without a bank. If you connect monobank, FinSight downloads
+  your account list and statement straight from monobank's API
+  (<code>api.monobank.ua</code>) to your iPhone and keeps them there. FinSight
+  only reads: it cannot make payments or change anything in your account.
+  Depending on the version of the app, connecting works in one of two ways.</p>
+  <p><strong>Through the mono app.</strong> FinSight asks monobank for
+  read-only access to your accounts and statement, and the mono app shows you
+  that request; you approve or decline it there. monobank then gives FinSight
+  an access identifier, which is kept in your iPhone's Keychain on this device
+  only. Monobank requires each request to be signed with FinSight's key, and
+  that key is not stored in the app: a small FinSight signing service creates
+  the signature. For this it receives only the technical details of the
+  request (which kind of request it is, the access identifier, the account
+  identifier and the period of a statement) and a check from Apple (App
+  Attest) that the request comes from the genuine FinSight app. It returns the
+  signature, stores nothing and keeps no logs of these details. Your
+  statements, balances and name never pass through it: the app talks to
+  monobank directly.</p>
+  <p><strong>Through monobank's own page.</strong> FinSight opens the bank's
+  page at <code>api.monobank.ua</code> inside the app. You confirm the sign-in
+  in the mono app, and the page gives you a personal token, which FinSight
+  picks up and keeps in your iPhone's Keychain on this device only. FinSight
+  reads nothing else on that page, and the page's cookies are deleted when you
+  close it. The page itself belongs to monobank and is covered by monobank's
+  privacy policy.</p>
+  <p>You can disconnect monobank in FinSight's settings at any time, and
+  withdraw the access in the mono app.</p>
+
+  <h2>What we share</h2>
+  <p>Nothing. FinSight contains no third-party code that collects data, and we
+  never sell, rent or share information about you.</p>
+
+  <h2>Deleting your data</h2>
+  <p>Any transaction can be edited or deleted. Settings → Reset Data erases all
+  of FinSight's data, the monobank access included. Deleting the app removes
+  its data from your iPhone; an item in the Keychain may stay until the iPhone
+  is erased, so reset or disconnect monobank first if you want it gone.</p>
+
+  <h2>Children</h2>
+  <p>FinSight is meant for adults managing their own money. It does not collect
+  data from anyone, including children. monobank's API is not available to
+  clients under 16.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the new version will be posted here with a new
+  effective date. If FinSight ever starts collecting any data, this page will
+  say so before the app does.</p>
+
+  <footer>FinSight · <a href="support.html">Support</a> ·
+  <a href="mailto:storschajnikita@gmail.com">storschajnikita@gmail.com</a></footer>
+</main>
+</body>
+</html>
