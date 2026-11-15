@@ -87,37 +87,31 @@ FinSight saves them as a transaction. The same happens when you add an
 expense with Siri or Shortcuts. Nothing leaves your device.</p>
 
 <h2 id="monobank">Connecting monobank (optional)</h2>
-  <p>FinSight works without a bank. If you connect monobank, FinSight downloads
-  your account list and statement straight from monobank’s API
-  (<code>api.monobank.ua</code>) to your iPhone and keeps them there. FinSight
-  only reads: it cannot make payments or change anything in your account.
-  Depending on the version of the app, connecting works in one of two ways.</p>
-  <p><strong>Through the mono app.</strong> FinSight asks monobank for
-  read-only access to your accounts and statement, and the mono app shows you
-  that request; you approve or decline it there. monobank then gives FinSight
-  an access identifier, which is kept in your iPhone’s Keychain on this device
-  only. Monobank requires each request to be signed with FinSight’s key, and
-  that key is not stored in the app: a small FinSight signing service creates
-  the signature. For this it receives only the technical details of the
-  request (which kind of request it is, the access identifier, the account
-  identifier and the period of a statement) and a check from Apple (App
-  Attest) that the request comes from the genuine FinSight app. It returns the
-  signature and keeps no logs. All it stores is a technical record for each
-  installation of the app: its App Attest key, the environment and app it was
-  issued for, a signature counter and the number of requests in the current
-  hour (deleted after 180 days without use). It never stores request or
-  account identifiers, statements, IP addresses or anything else about you.
-  Your statements, balances and name never pass through it: the app talks to
-  monobank directly.</p>
-  <p><strong>Through monobank’s own page.</strong> FinSight opens the bank’s
-  page at <code>api.monobank.ua</code> inside the app. You confirm the sign-in
-  in the mono app, and the page gives you a personal token, which FinSight
-  picks up and keeps in your iPhone’s Keychain on this device only. FinSight
-  reads nothing else on that page, and the page’s cookies are deleted when you
-  close it. The page itself belongs to monobank and is covered by monobank’s
-  privacy policy.</p>
-  <p>You can disconnect monobank in FinSight’s settings at any time, and
-  withdraw the access in the mono app.</p>
+<p>FinSight works without a bank. If you connect monobank, FinSight downloads
+your account list and statement straight from monobank’s API
+(<code>api.monobank.ua</code>) to your iPhone and keeps them there. FinSight
+only reads: it cannot make payments or change anything in your account.</p>
+<p>You connect monobank through the mono app. FinSight asks monobank for
+read-only access to your accounts and statement, and the mono app shows you
+that request; you approve or decline it there. monobank then gives FinSight
+an access identifier, which is kept in your iPhone’s Keychain on this device
+only.</p>
+<p>Monobank requires each request to be signed with FinSight’s key, and
+that key is not stored in the app: a small FinSight signing service creates
+the signature. For this it receives only the technical details of the
+request (which kind of request it is, the access identifier, the account
+identifier and the period of a statement) and a check from Apple (App
+Attest) that the request comes from the genuine FinSight app. It returns the
+signature and keeps no logs. All it stores is a technical record for each
+installation of the app: its App Attest key, the environment and app it was
+issued for, a signature counter and the number of requests in the current
+hour (deleted after 180 days without use), plus how many installations
+registered with it in the current hour. It never stores request or
+account identifiers, statements, IP addresses or anything else about you.
+Your statements, balances and name never pass through it: the app talks to
+monobank directly.</p>
+<p>You can disconnect monobank in FinSight’s settings at any time, and
+withdraw the access in the mono app.</p>
 
 <h2 id="sharing">What we share</h2>
 <p>Nothing. FinSight contains no third-party code that collects data, and we
