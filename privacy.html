@@ -44,12 +44,13 @@
 
 <main class="wrap">
 <h1>Privacy Policy</h1>
-<p class="meta">Effective 15 November 2026</p>
+<p class="meta">Effective 21 November 2026</p>
 
 <div class="cell">
   <p><strong>In short: FinSight collects no personal data.</strong> It has
-  no account, no analytics, no advertising and no tracking. Your
-  transactions, categories and reports stay on your iPhone.</p>
+  no account, no analytics, no advertising, no tracking and no third-party
+  SDKs. Your transactions, categories, plans and reports stay on your iPhone.
+  The optional iCloud backup goes to your own iCloud, which we cannot see.</p>
 </div>
 
 <h2 id="who">Who we are</h2>
@@ -64,27 +65,53 @@ FinSight’s own widgets. None of it is sent to us or to anyone else.</p>
 <ul>
   <li><strong>Your transactions:</strong> amount, currency, date, merchant,
   category and notes, whether you added them yourself, through Siri or
-  Shortcuts, or imported them from monobank.</li>
+  Shortcuts, imported them from a CSV file or from monobank.</li>
   <li><strong>Your categories and rules</strong>, such as “always put this
   shop in Groceries”.</li>
+  <li><strong>Your monthly plans</strong> and category limits.</li>
   <li><strong>Your reports</strong> and their AI comments.</li>
-  <li><strong>Your settings:</strong> currency, theme and accent colour.</li>
+  <li><strong>Your settings:</strong> currency, theme, language,
+  notifications and the Face ID lock.</li>
 </ul>
 <p>Like other app data, this can be included in your iPhone’s own backups
 (iCloud or computer), under your control and Apple’s privacy terms.</p>
 
-<h2 id="reports">Reports and Apple Intelligence</h2>
-<p>Report figures are counted by FinSight on your iPhone. The optional
-comment is written by Apple’s on-device model (Apple Intelligence). If you
-translate a comment, Apple’s Translation framework does it on the device;
-iOS may first download the language from Apple. Your spending is not sent to
-any cloud service.</p>
+<h2 id="backup">iCloud backup (optional)</h2>
+<p>If you turn on Settings → iCloud Backup, FinSight saves a copy of its data
+in your own iCloud: the private CloudKit database of your Apple Account,
+which only you can read. We never see it, and it does not pass through any
+server of ours. The newest three copies are kept. A copy never holds your
+monobank access, so after a restore monobank asks you to connect again. You
+can turn the backup off at any time; the copies already made stay in your
+iCloud until you delete them in iOS’s iCloud storage settings.</p>
+
+<h2 id="reports">Apple Intelligence on your iPhone</h2>
+<p>Report figures are counted by FinSight on your iPhone. Several features
+also use Apple’s on-device models (Apple Intelligence), which run on the
+iPhone itself:</p>
+<ul>
+  <li>the optional comment in a report;</li>
+  <li>a category for a merchant FinSight doesn’t know (the model sees only
+  the merchant’s name and your category names);</li>
+  <li>reading a word in a question you type in Search, such as “how much on
+  the cat in October” (FinSight counts the answer itself).</li>
+</ul>
+<p>If you translate a comment, Apple’s Translation framework does it on the
+device; iOS may first download the language from Apple. Your spending is not
+sent to any cloud service.</p>
 
 <h2 id="shortcuts">Siri, Shortcuts and Apple Pay auto-log</h2>
 <p>If you set up a Shortcuts automation for Apple Pay, iOS passes the
 payment’s amount, merchant and card name to FinSight on your iPhone, and
 FinSight saves them as a transaction. The same happens when you add an
 expense with Siri or Shortcuts. Nothing leaves your device.</p>
+
+<h2 id="rates">Exchange rates</h2>
+<p>To convert a payment made in another currency, FinSight downloads
+monobank’s public list of exchange rates
+(<code>api.monobank.ua/bank/currency</code>). It is the same list for
+everyone: the request carries no account, no identifier and nothing about
+you or your payments.</p>
 
 <h2 id="monobank">Connecting monobank (optional)</h2>
 <p>FinSight works without a bank. If you connect monobank, FinSight downloads
@@ -95,33 +122,66 @@ only reads: it cannot make payments or change anything in your account.</p>
 read-only access to your accounts and statement, and the mono app shows you
 that request; you approve or decline it there. monobank then gives FinSight
 an access identifier, which is kept in your iPhone’s Keychain on this device
-only.</p>
+only. One access serves every card you choose to import; you can add a card
+or disconnect one later.</p>
 <p>Monobank requires each request to be signed with FinSight’s key, and
-that key is not stored in the app: a small FinSight signing service creates
-the signature. For this it receives only the technical details of the
-request (which kind of request it is, the access identifier, the account
-identifier and the period of a statement) and a check from Apple (App
-Attest) that the request comes from the genuine FinSight app. It returns the
-signature and keeps no logs. All it stores is a technical record for each
-installation of the app: its App Attest key, the environment and app it was
-issued for, a signature counter and the number of requests in the current
-hour (deleted after 180 days without use), plus how many installations
-registered with it in the current hour. It never stores request or
-account identifiers, statements, IP addresses or anything else about you.
-Your statements, balances and name never pass through it: the app talks to
-monobank directly.</p>
-<p>You can disconnect monobank in FinSight’s settings at any time, and
-withdraw the access in the mono app.</p>
+that key is not stored in the app: a small FinSight signing service, run on
+Cloudflare, creates the signature. For this it receives only the technical
+details of the request (which kind of request it is, the access identifier,
+the account identifier and the period of a statement) and a check from Apple
+(App Attest) that the request comes from the genuine FinSight app. It
+returns the signature and keeps no logs. All it stores is a technical record
+for each installation of the app: its App Attest key, the environment and
+app it was issued for, a signature counter and the number of requests in the
+current hour (deleted after 180 days without use), plus how many
+installations registered with it in the current hour. To limit abuse it
+counts requests per network address for 60 seconds, as a hash held in
+memory. It never stores request or account identifiers, statements, IP
+addresses or anything else about you. Your statements, balances and name
+never pass through it: the app talks to monobank directly.</p>
+<p>About App Attest: when you first connect, iOS creates a key for this copy
+of FinSight and asks Apple to confirm that the app is genuine. The key is
+random and tied to this installation, not to your name or Apple Account.
+Apple’s part of this is covered by Apple’s privacy policy.</p>
+<p>You can disconnect a card or all of monobank in FinSight’s settings at
+any time, and withdraw the access in the mono app.</p>
+
+<h2 id="notifications">Notifications</h2>
+<p>FinSight’s notifications (plan, limits, monthly report, upcoming
+subscriptions, monobank) are scheduled on your iPhone from data on your
+iPhone. They are local notifications: no push service and no server is
+involved.</p>
+
+<h2 id="face-id">Face ID lock</h2>
+<p>If you turn on the lock, iOS checks your face, fingerprint or passcode.
+FinSight only learns whether the check succeeded; it never receives your
+biometric data.</p>
+
+<h2 id="files">CSV import and export</h2>
+<p>FinSight reads only the file you pick to import, on your iPhone. An export
+creates a file that you share where you choose. The exported file isn’t
+encrypted, so anyone you send it to can read it.</p>
+
+<h2 id="diagnostics">Crash and performance reports</h2>
+<p>FinSight receives iOS’s crash and performance reports (MetricKit) and
+keeps the newest 20 on your iPhone. They describe the app, not you, and are
+never sent anywhere by FinSight. In test builds they can be shared by hand
+from the testing tools. If you turn on Share With App Developers in iOS
+settings, Apple may also pass crash reports to us; that is Apple’s service,
+under Apple’s privacy policy.</p>
 
 <h2 id="sharing">What we share</h2>
-<p>Nothing. FinSight contains no third-party code that collects data, and we
-never sell, rent or share information about you.</p>
+<p>Nothing. FinSight contains no analytics, advertising or other
+third-party code, and we never sell, rent or share information about
+you.</p>
 
 <h2 id="deleting">Deleting your data</h2>
-<p>Any transaction can be edited or deleted. Settings → Reset Data erases all
-of FinSight’s data, the monobank access included. Deleting the app removes
-its data from your iPhone; an item in the Keychain may stay until the iPhone
-is erased, so reset or disconnect monobank first if you want it gone.</p>
+<p>Any transaction can be edited or deleted. Settings → Erase All Data
+erases all of FinSight’s data on the iPhone, the monobank access and pending
+notifications included; copies in your iCloud stay until you delete them
+there. Deleting the app removes its data from your iPhone; an item in the
+Keychain may stay until the iPhone is erased, so erase the data or
+disconnect monobank first if you want it gone.</p>
 
 <h2 id="children">Children</h2>
 <p>FinSight is meant for adults managing their own money. It does not collect
