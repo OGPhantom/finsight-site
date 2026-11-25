@@ -44,7 +44,7 @@
 
 <main class="wrap">
 <h1>Privacy Policy</h1>
-<p class="meta">Effective 21 November 2026</p>
+<p class="meta">Effective 25 November 2026</p>
 
 <div class="cell">
   <p><strong>In short: FinSight collects no personal data.</strong> It has
@@ -65,7 +65,7 @@ FinSight’s own widgets. None of it is sent to us or to anyone else.</p>
 <ul>
   <li><strong>Your transactions:</strong> amount, currency, date, merchant,
   category and notes, whether you added them yourself, through Siri or
-  Shortcuts, imported them from a CSV file or from monobank.</li>
+  Shortcuts, or imported them from a CSV file.</li>
   <li><strong>Your categories and rules</strong>, such as “always put this
   shop in Groceries”.</li>
   <li><strong>Your monthly plans</strong> and category limits.</li>
@@ -80,9 +80,8 @@ FinSight’s own widgets. None of it is sent to us or to anyone else.</p>
 <p>If you turn on Settings → iCloud Backup, FinSight saves a copy of its data
 in your own iCloud: the private CloudKit database of your Apple Account,
 which only you can read. We never see it, and it does not pass through any
-server of ours. The newest three copies are kept. A copy never holds your
-monobank access, so after a restore monobank asks you to connect again. You
-can turn the backup off at any time; the copies already made stay in your
+server of ours. The newest three copies are kept. You can turn the backup
+off at any time; the copies already made stay in your
 iCloud until you delete them in iOS’s iCloud storage settings.</p>
 
 <h2 id="reports">Apple Intelligence on your iPhone</h2>
@@ -111,44 +110,12 @@ expense with Siri or Shortcuts. Nothing leaves your device.</p>
 monobank’s public list of exchange rates
 (<code>api.monobank.ua/bank/currency</code>). It is the same list for
 everyone: the request carries no account, no identifier and nothing about
-you or your payments.</p>
-
-<h2 id="monobank">Connecting monobank (optional)</h2>
-<p>FinSight works without a bank. If you connect monobank, FinSight downloads
-your account list and statement straight from monobank’s API
-(<code>api.monobank.ua</code>) to your iPhone and keeps them there. FinSight
-only reads: it cannot make payments or change anything in your account.</p>
-<p>You connect monobank through the mono app. FinSight asks monobank for
-read-only access to your accounts and statement, and the mono app shows you
-that request; you approve or decline it there. monobank then gives FinSight
-an access identifier, which is kept in your iPhone’s Keychain on this device
-only. One access serves every card you choose to import; you can add a card
-or disconnect one later.</p>
-<p>Monobank requires each request to be signed with FinSight’s key, and
-that key is not stored in the app: a small FinSight signing service, run on
-Cloudflare, creates the signature. For this it receives only the technical
-details of the request (which kind of request it is, the access identifier,
-the account identifier and the period of a statement) and a check from Apple
-(App Attest) that the request comes from the genuine FinSight app. It
-returns the signature and keeps no logs. All it stores is a technical record
-for each installation of the app: its App Attest key, the environment and
-app it was issued for, a signature counter and the number of requests in the
-current hour (deleted after 180 days without use), plus how many
-installations registered with it in the current hour. To limit abuse it
-counts requests per network address for 60 seconds, as a hash held in
-memory. It never stores request or account identifiers, statements, IP
-addresses or anything else about you. Your statements, balances and name
-never pass through it: the app talks to monobank directly.</p>
-<p>About App Attest: when you first connect, iOS creates a key for this copy
-of FinSight and asks Apple to confirm that the app is genuine. The key is
-random and tied to this installation, not to your name or Apple Account.
-Apple’s part of this is covered by Apple’s privacy policy.</p>
-<p>You can disconnect a card or all of monobank in FinSight’s settings at
-any time, and withdraw the access in the mono app.</p>
+you or your payments. FinSight does not connect to your bank and cannot
+read your bank account.</p>
 
 <h2 id="notifications">Notifications</h2>
 <p>FinSight’s notifications (plan, limits, monthly report, upcoming
-subscriptions, monobank) are scheduled on your iPhone from data on your
+subscriptions) are scheduled on your iPhone from data on your
 iPhone. They are local notifications: no push service and no server is
 involved.</p>
 
@@ -158,7 +125,8 @@ FinSight only learns whether the check succeeded; it never receives your
 biometric data.</p>
 
 <h2 id="files">CSV import and export</h2>
-<p>FinSight reads only the file you pick to import, on your iPhone. An export
+<p>FinSight reads only the file you pick to import, such as a statement
+exported from your banking app, and reads it on your iPhone. An export
 creates a file that you share where you choose. The exported file isn’t
 encrypted, so anyone you send it to can read it.</p>
 
@@ -177,16 +145,13 @@ you.</p>
 
 <h2 id="deleting">Deleting your data</h2>
 <p>Any transaction can be edited or deleted. Settings → Erase All Data
-erases all of FinSight’s data on the iPhone, the monobank access and pending
-notifications included; copies in your iCloud stay until you delete them
-there. Deleting the app removes its data from your iPhone; an item in the
-Keychain may stay until the iPhone is erased, so erase the data or
-disconnect monobank first if you want it gone.</p>
+erases all of FinSight’s data on the iPhone, pending notifications
+included; copies in your iCloud stay until you delete them there. Deleting
+the app removes its data from your iPhone.</p>
 
 <h2 id="children">Children</h2>
 <p>FinSight is meant for adults managing their own money. It does not collect
-data from anyone, including children. monobank’s API is not available to
-clients under 16.</p>
+data from anyone, including children.</p>
 
 <h2 id="changes">Changes</h2>
 <p>If this policy changes, the new version will be posted here with a new
