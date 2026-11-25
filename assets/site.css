@@ -1,80 +1,83 @@
-/* FinSight site. The look follows the app's design system. Every brand decision is a token
-   in :root (and the two @font-face rules), so changing the look never touches the markup. */
+/* FinSight site. The look is the app's look C «Поле» (indigo field, amber context line,
+   Commissioner + Golos Text) laid out on Monzo's structure from Refero Styles: a tinted canvas,
+   white cards with generous radii, a carousel hero card, a big link list. Every colour is a
+   token in :root, redefined for dark («Нічне поле»). */
 
-@font-face {
-  font-family: "Fixel FS Display";
-  src: url("fonts/FixelFSDisplay-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Fixel FS Display";
-  src: url("fonts/FixelFSDisplay-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+@font-face { font-family: "Commissioner"; src: url("fonts/Commissioner-SemiBold.woff") format("woff"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Commissioner"; src: url("fonts/Commissioner-Bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Commissioner"; src: url("fonts/Commissioner-ExtraBold.woff") format("woff"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Golos Text"; src: url("fonts/GolosText-Regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Golos Text"; src: url("fonts/GolosText-Medium.woff") format("woff"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Golos Text"; src: url("fonts/GolosText-SemiBold.woff") format("woff"); font-weight: 600; font-display: swap; }
 
 :root {
   color-scheme: light dark;
 
-  --ground: #F5F7FA;
-  --surface: #FFFFFF;
-  --edge: rgb(20 23 28 / 0.07);
-  --hairline: #E4E8EE;
-  --fill: rgb(20 23 28 / 0.06);
-  --fill-strong: rgb(20 23 28 / 0.10);
-  --ink: #14171C;
-  --ink2: #5B6472;
-  --ink3: #7F8896;
-  --accent: #4453E0;
-  --accent-fill: #4453E0;
-  --accent-fill-hover: #3644C9;
-  --on-accent: #FFFFFF;
+  --canvas: #EEF0F8;          /* Monzo's tinted canvas, tinted towards the app's indigo */
+  --card: #FFFFFF;
+  --inset: #F4F5F9;           /* the app's action card fill: demo rows inside a card */
+  --ink: #111218;
+  --muted: #5D6070;
+  --faint: #676A7B;          /* the app's faint, darkened to 4.5:1 on the inset */
+  --line: #E2E4EE;
+  --indigo: #3A3FCF;          /* text and links */
+  --indigo-fill: #3A3FCF;     /* under white */
+  --indigo-hover: #2F34B8;
+  --amber: #FFC861;
+  --amber-ink: #8F5A00;
+  --field-top: #3238C4;
+  --field-bottom: #2B2FA8;
+  --band: #111218;            /* the privacy band */
+  --band-card: #1D1F2E;
+  --on-field: #FFFFFF;
+  --on-field-2: rgb(255 255 255 / 0.86);
+  --on-field-glass: rgb(255 255 255 / 0.16);
+  --toggle: rgb(17 18 24 / 0.06);
+  --positive: #2E7244;
 
-  /* The strip: the demo month of the redesign frames (35 / 30 / 14 / 5 / 5 / rest 11). */
-  --c-shopping: #8756B1;
-  --c-groceries: #4E8F4B;
-  --c-home: #1C5248;
-  --c-dining: #C46A35;
-  --c-subscriptions: #5648A8;
+  --c-groceries: #4A9A4E;
+  --c-coffee: #8A5A3C;
+  --c-travel: #2F8FA0;
+  --c-dining: #D0702F;
 
-  --font-brand: "Fixel FS Display", ui-sans-serif, system-ui, sans-serif;
-  --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Commissioner", "Golos Text", ui-sans-serif, system-ui, sans-serif;
+  --font-text: "Golos Text", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, sans-serif;
   --font-code: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  --r-group: 24px;
-  --r-inner: 10px;
-  --r-strip: 4px;
-  --r-icon: 7px;
-
+  --r-hero: clamp(32px, 5vw, 64px);
+  --r-card: clamp(28px, 4vw, 48px);
+  --r-inset: 24px;
   --gutter: 16px;
   --column: 42rem;
+  --wide: 1200px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ground: #14171C;
-    --surface: #1D2129;
-    --edge: rgb(255 255 255 / 0.05);
-    --hairline: #2C313B;
-    --fill: rgb(255 255 255 / 0.09);
-    --fill-strong: rgb(255 255 255 / 0.15);
-    --ink: #F2F4F7;
-    --ink2: #A4ACB9;
-    --ink3: #737B89;
-    --accent: #8E98FF;
-    --accent-fill: #4F5DE8;
-    --accent-fill-hover: #4150D6;
+    --canvas: #0E0F17;
+    --card: #181A27;
+    --inset: #0E0F17;
+    --ink: #ECEDF5;
+    --muted: #A3A6B8;
+    --faint: #878A9C;
+    --line: #23253A;
+    --indigo: #A9ACFF;
+    --indigo-fill: #3A3FCF;
+    --indigo-hover: #4A50E0;
+    --amber-ink: #FFC861;
+    --field-top: #252A9E;
+    --field-bottom: #1C1F7C;
+    --band: #1C1F7C;
+    --band-card: rgb(0 0 0 / 0.24);
+    --on-field-glass: rgb(255 255 255 / 0.14);
+    --toggle: rgb(255 255 255 / 0.08);
+    --positive: #6FD08F;
 
-    --c-shopping: #9A68C8;
-    --c-groceries: #57A054;
-    --c-home: #2A7A6C;
-    --c-dining: #D46F3A;
-    --c-subscriptions: #725ABD;
+    --c-groceries: #6CC070;
+    --c-coffee: #C9926C;
+    --c-travel: #5CC3D4;
+    --c-dining: #F0955A;
   }
 }
 
@@ -85,7 +88,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  background: var(--ground);
+  background: var(--canvas);
+  scroll-padding-top: 16px;
 }
 
 body {
@@ -94,7 +98,7 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  background: var(--ground);
+  background: var(--canvas);
   color: var(--ink);
   font-family: var(--font-text);
   font-size: 17px;
@@ -104,27 +108,43 @@ body {
   overflow-wrap: break-word;
 }
 
-::selection { background: color-mix(in srgb, var(--accent) 24%, transparent); }
+::selection { background: color-mix(in srgb, var(--indigo) 24%, transparent); }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--indigo);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 a {
-  color: var(--accent);
+  color: var(--indigo);
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
-  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--indigo) 45%, transparent);
 }
 
 a:hover { text-decoration-color: currentColor; }
 
+img { max-width: 100%; }
+
+.num { font-variant-numeric: tabular-nums; }
+
 .wrap {
   width: 100%;
   max-width: calc(var(--column) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.home .wrap,
+.wide {
+  max-width: calc(var(--wide) + 2 * var(--gutter));
+}
+
+.wide {
+  width: 100%;
   margin: 0 auto;
   padding-left: var(--gutter);
   padding-right: var(--gutter);
@@ -149,17 +169,17 @@ a:hover { text-decoration-color: currentColor; }
   margin-right: auto;
   color: var(--ink);
   text-decoration: none;
-  font-family: var(--font-brand);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 25px;
-  letter-spacing: -0.005em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
 }
 
 .brand img {
   width: 32px;
   height: 32px;
-  border-radius: var(--r-icon);
+  border-radius: 8px;
   display: block;
 }
 
@@ -177,9 +197,10 @@ a:hover { text-decoration-color: currentColor; }
   min-height: 44px;
   padding: 0 12px;
   border-radius: 999px;
-  color: var(--ink2);
+  color: var(--muted);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .pages a:hover { color: var(--ink); }
@@ -189,12 +210,12 @@ a:hover { text-decoration-color: currentColor; }
   font-weight: 600;
 }
 
-/* Language: a segmented control, the same place on every page. */
+/* Language: Monzo's pill toggle, the same place on every page. */
 .lang {
   display: inline-flex;
   padding: 3px;
   border-radius: 999px;
-  background: var(--fill);
+  background: var(--toggle);
 }
 
 .lang a,
@@ -205,6 +226,7 @@ a:hover { text-decoration-color: currentColor; }
   padding: 0 14px;
   border-radius: 999px;
   font-size: 15px;
+  font-weight: 600;
   line-height: 20px;
   text-decoration: none;
   white-space: nowrap;
@@ -213,15 +235,14 @@ a:hover { text-decoration-color: currentColor; }
 .lang a {
   min-height: 44px;
   margin: -3px 0;
-  color: var(--ink2);
+  color: var(--muted);
 }
+
 .lang a:hover { color: var(--ink); }
 
 .lang span {
   color: var(--ink);
-  font-weight: 600;
-  background: var(--surface);
-  box-shadow: inset 0 0 0 1px var(--edge);
+  background: var(--card);
 }
 
 @media (min-width: 720px) {
@@ -229,42 +250,66 @@ a:hover { text-decoration-color: currentColor; }
   .pages { order: 0; flex-basis: auto; margin: 0 8px 0 0; }
 }
 
-/* ───────────── content ───────────── */
+/* ───────────── text pages (privacy, support) ───────────── */
 
 main {
   flex: 1 0 auto;
-  padding-top: 24px;
+  padding-top: 8px;
   padding-bottom: 64px;
 }
 
+/* The document sits on one white sheet over the tinted canvas. */
+body:not(.home) main.wrap {
+  max-width: calc(var(--column) + 80px);
+}
+
+body:not(.home) main.wrap {
+  background: var(--card);
+  border-radius: var(--r-card);
+  padding: 28px 20px 36px;
+  margin: 8px auto 64px;
+  width: calc(100% - 2 * var(--gutter));
+}
+
 h1, h2 {
-  font-family: var(--font-brand);
+  font-family: var(--font-display);
   color: var(--ink);
   text-wrap: balance;
 }
 
 h1 {
-  font-weight: 700;
-  font-size: clamp(28px, 10vw, 34px);
-  line-height: 41px;
+  font-weight: 800;
+  font-size: clamp(28px, 9vw, 34px);
+  line-height: 1.15;
   letter-spacing: -0.012em;
   margin: 0 0 12px;
 }
 
 h2 {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 25px;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.25;
   letter-spacing: -0.005em;
-  margin: 44px 0 10px;
+  margin: 40px 0 10px;
   scroll-margin-top: 24px;
+}
+
+/* The app's section mark: a short amber line under a section title. */
+body:not(.home) h2::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--amber);
+  margin-top: 8px;
 }
 
 p, ul { margin: 0 0 14px; }
 
 ul { padding-left: 1.25em; }
 li { margin-bottom: 6px; padding-left: 2px; }
-li::marker { color: var(--ink3); }
+li::marker { color: var(--faint); }
 
 strong { font-weight: 600; }
 
@@ -273,152 +318,479 @@ code {
   font-size: 0.88em;
   padding: 0.1em 0.25em;
   border-radius: 6px;
-  background: var(--fill);
+  background: var(--inset);
   white-space: nowrap;
 }
 
 .lead {
   font-size: 19px;
   line-height: 1.5;
-  color: var(--ink2);
+  color: var(--muted);
   text-wrap: pretty;
   margin-bottom: 0;
 }
 
 .meta {
   font-size: 15px;
-  color: var(--ink2);
+  color: var(--muted);
 }
 
-/* A grouped cell: the app's one surface over the ground, separated by its edge, never a shadow. */
 .cell {
-  background: var(--surface);
-  border-radius: var(--r-group);
-  box-shadow: inset 0 0 0 1px var(--edge);
+  background: var(--inset);
+  border-radius: var(--r-inset);
   padding: 18px 20px;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
 }
 
 .cell p:last-child { margin-bottom: 0; }
 
-.rows {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 0 20px;
-}
-
-.rows li {
-  margin: 0;
-  padding: 14px 20px 15px 0;
-}
-
-.rows li + li { border-top: 1px solid var(--hairline); }
-
-.rows h2 {
-  font-family: var(--font-text);
-  font-size: 17px;
-  line-height: 22px;
-  font-weight: 600;
-  letter-spacing: 0;
-  margin: 0 0 3px;
-}
-
-.rows p {
-  font-size: 15px;
-  line-height: 20px;
-  color: var(--ink2);
-  margin: 0;
-}
-
-.cell.list { padding: 4px 0; }
-
-/* The one primary action of a page. */
+/* The one primary action of a page: an indigo pill. */
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0 26px;
+  min-height: 52px;
+  padding: 0 28px;
   border-radius: 999px;
-  background: var(--accent-fill);
-  color: var(--on-accent);
+  background: var(--indigo-fill);
+  color: #FFFFFF;
   font-size: 17px;
   font-weight: 600;
   text-decoration: none;
   transition: background-color 160ms var(--ease-out);
 }
 
-.button:hover { background: var(--accent-fill-hover); }
+.button:hover { background: var(--indigo-hover); }
 
 .actions { margin: 28px 0 0; }
 
+@media (min-width: 720px) {
+  main { padding-bottom: 96px; }
+  body:not(.home) main.wrap { padding: 48px 40px 56px; margin-bottom: 96px; }
+  h1 { font-size: 48px; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .lead { font-size: 20px; }
+}
+
 /* ───────────── home ───────────── */
 
-.hero h1 { margin-bottom: 14px; }
+.home main { padding-top: 0; display: flex; flex-direction: column; gap: 24px; }
 
-.strip {
+/* Hero: Monzo's rounded carousel card, filled with the app's field. */
+.hero {
+  position: relative;
+  border-radius: var(--r-hero);
+  overflow: hidden;
+  background: linear-gradient(165deg, var(--field-top), var(--field-bottom));
+  color: var(--on-field);
+}
+
+.slides { display: grid; }
+
+.slide {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 36px 24px 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 450ms var(--ease-out), visibility 0s linear 450ms;
+}
+
+.slide.is-on {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 450ms var(--ease-out), visibility 0s;
+}
+
+.slide .copy { min-width: 0; }
+
+.ctx {
+  margin: 0 0 12px;
+  color: var(--amber);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.hero h1,
+.hero h2 {
+  color: var(--on-field);
+  font-weight: 800;
+  font-size: clamp(38px, 10vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin: 0;
+  max-width: 13ch;
+}
+
+.hero .sub {
+  margin: 18px 0 0;
+  color: var(--on-field-2);
+  font-size: 19px;
+  line-height: 1.45;
+  max-width: 30ch;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pill.light { background: #FFFFFF; color: #111218; margin-top: 28px; }
+.pill.light:hover { background: #ECEDF5; }
+
+.shot {
   display: flex;
-  gap: 3px;
-  height: 16px;
-  margin: 36px 0 0;
+  justify-content: center;
+  align-items: flex-start;
+  height: clamp(300px, 80vw, 420px);
+  overflow: hidden;
 }
 
-.strip i {
+.shot img {
   display: block;
-  flex: var(--w) 0 0;
-  border-radius: var(--r-strip);
-  background: var(--k);
-  transform-origin: left center;
-  animation: segment 900ms var(--ease-out) both;
-  animation-delay: calc(var(--n) * 70ms + 120ms);
+  width: min(330px, 86%);
+  height: auto;
 }
 
-@keyframes segment {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px 20px;
 }
 
-@keyframes appear {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.dots { display: flex; }
+
+.dots button {
+  width: 28px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.dots button::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.4);
+}
+
+.dots button[aria-current="true"]::after { background: #FFFFFF; }
+
+.arrows { display: flex; gap: 8px; }
+
+.arrows button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgb(255 255 255 / 0.9);
+  background: transparent;
+  color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.arrows button:hover { background: var(--on-field-glass); }
+.hero :focus-visible { outline-color: var(--amber); }
+
+/* A line of plain facts under the hero, Monzo's badge row. */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.facts li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+/* Cards */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--r-card);
+  padding: 28px 22px;
+  min-width: 0;
+  scroll-margin-top: 16px;
+}
+
+.card h2,
+.links h2,
+.band h2,
+.closing h2 {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(28px, 7vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.card > p,
+.card .copy > p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.45;
+  max-width: 34ch;
+}
+
+/* Expense rows drawn as the app draws them. */
+.demo {
+  margin-top: 24px;
+  background: var(--inset);
+  border-radius: var(--r-inset);
+  padding: 8px 18px;
+}
+
+.day {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 2px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.day span:last-child { color: var(--indigo); }
+
+.row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 0 12px;
+  align-items: center;
+  padding: 11px 0;
+}
+
+.row + .row { border-top: 1px solid var(--line); }
+
+.row .glyph {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--k) 16%, transparent);
+  color: var(--k);
+}
+
+.row .glyph svg { display: block; }
+.row b { display: block; font-weight: 500; font-size: 16px; line-height: 1.3; }
+.row small { display: block; font-size: 13px; color: var(--muted); line-height: 1.35; }
+.row .tag { display: inline-block; padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, var(--indigo) 12%, transparent); color: var(--indigo); font-weight: 600; font-size: 12px; margin-left: 4px; }
+.row .amt { text-align: right; font-weight: 600; font-size: 16px; white-space: nowrap; }
+.row .amt small { color: var(--faint); font-weight: 400; font-size: 12px; }
+
+/* A big card: copy beside a phone that rises from the card's bottom edge. */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.split .shot { height: clamp(320px, 84vw, 460px); }
+
+.checks {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.checks li {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  font-size: 17px;
+}
+
+.checks li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin: 8px 0 0 4px;
+  border-radius: 50%;
+  background: var(--indigo);
+}
+
+.phonecard { padding-bottom: 0; overflow: hidden; display: flex; flex-direction: column; }
+.phonecard .shot { margin-top: 28px; height: clamp(280px, 72vw, 400px); background: var(--inset); border-radius: var(--r-inset) var(--r-inset) 0 0; padding-top: 28px; }
+.phonecard .shot img { width: min(290px, 80%); }
+
+/* Search: the app's answer card, drawn. */
+.asks { display: flex; flex-direction: column; }
+.ask { padding: 16px; display: grid; gap: 12px; }
+.field-q { background: linear-gradient(165deg, var(--field-top), var(--field-bottom)); border-radius: 18px; padding: 14px; }
+.field-q .q { display: flex; align-items: center; gap: 8px; background: rgb(255 255 255 / 0.16); color: #FFFFFF; border-radius: 999px; padding: 10px 14px; font-size: 16px; }
+.answer { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--card); border-radius: 18px; padding: 14px 16px; }
+.answer b { display: block; font-weight: 600; font-size: 17px; line-height: 1.3; }
+.answer small { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+.answer .go { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--indigo-fill); color: #FFFFFF; display: grid; place-items: center; }
+.tries { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tries li { margin: 0; padding: 8px 14px; border-radius: 999px; background: var(--inset); font-size: 15px; color: var(--ink); }
+.tries li::before { content: "“"; color: var(--faint); }
+.tries li::after { content: "”"; color: var(--faint); }
+:lang(uk) .tries li::before { content: "«"; }
+:lang(uk) .tries li::after { content: "»"; }
+
+/* The privacy band: the one dark block on the page. */
+.band {
+  background: var(--band);
+  color: #FFFFFF;
+  border-radius: var(--r-card);
+  padding: 36px 22px;
+  scroll-margin-top: 16px;
+}
+
+.band h2 { color: #FFFFFF; max-width: 16ch; }
+
+.band ul {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.band li {
+  margin: 0;
+  background: var(--band-card);
+  border-radius: var(--r-inset);
+  padding: 20px;
+}
+
+.band li b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--amber);
+}
+
+.band li span { display: block; margin-top: 6px; color: rgb(255 255 255 / 0.86); font-size: 16px; line-height: 1.45; }
+
+.band .more {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 16px;
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration-color: rgb(255 255 255 / 0.5);
+}
+
+/* Monzo's big link list. */
+.links { padding: 16px 6px 0; }
+.links h2 { font-size: clamp(24px, 6vw, 30px); }
+
+.links ul { list-style: none; margin: 12px 0 0; padding: 0; }
+.links li { margin: 0; border-bottom: 1px solid var(--line); }
+
+.links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 72px;
+  padding: 10px 0;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 5.6vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--indigo);
+}
+
+.links a span {
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  color: var(--muted);
+  text-align: right;
+  max-width: 26ch;
+}
+
+.links a:hover span { color: var(--ink); }
+
+.closing {
+  text-align: center;
+  padding: 40px 16px 8px;
+}
+
+.closing img { width: 80px; height: 80px; border-radius: 18px; display: block; margin: 0 auto 18px; }
+.closing p { margin: 10px 0 0; font-size: 19px; color: var(--muted); }
+
+@media (min-width: 720px) {
+  .home main { gap: 32px; }
+  .slide { grid-template-columns: 1.1fr 0.9fr; gap: 24px; padding: 64px 56px 0; min-height: 560px; }
+  .slide .copy { align-self: center; padding-bottom: 72px; }
+  .slide .shot { height: auto; align-self: end; max-height: 520px; }
+  .controls { position: absolute; left: 0; bottom: 0; padding: 0 56px 28px; justify-content: flex-start; gap: 20px; }
+  .grid2 { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card { padding: 44px 40px; }
+  .split { grid-template-columns: 1fr 0.85fr; gap: 32px; padding-bottom: 0; }
+  .split .copy { align-self: center; padding-bottom: 44px; }
+  .split .shot { height: 480px; align-self: end; }
+  .phonecard { padding-bottom: 0; }
+  .band { padding: 56px 48px; }
+  .band ul { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .links { padding: 24px 12px 0; }
+  .closing { padding-top: 56px; }
+}
+
+@media (max-width: 719px) {
+  .links a span { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .strip i { animation: appear 400ms linear both; animation-delay: 0ms; }
+  .slide, .slide.is-on { transition: none; }
   .button { transition: none; }
-}
-
-.status {
-  margin: 16px 0 0;
-  text-wrap: balance;
-  font-family: var(--font-brand);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 25px;
-  color: var(--ink);
-}
-
-.home .cell.list { margin-top: 44px; }
-
-@media (min-width: 720px) {
-  main { padding-top: 48px; padding-bottom: 96px; }
-
-  h1 {
-    font-size: 48px;
-    line-height: 52px;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-
-  .hero h1 {
-    font-size: 56px;
-    line-height: 60px;
-    letter-spacing: -0.02em;
-  }
-
-  .lead { font-size: 20px; }
-  .strip { height: 20px; margin-top: 44px; }
-  .home .cell.list { margin-top: 56px; }
 }
 
 /* ───────────── footer ───────────── */
@@ -427,11 +799,11 @@ code {
   padding-bottom: 32px;
   font-size: 15px;
   line-height: 20px;
-  color: var(--ink2);
+  color: var(--muted);
 }
 
 .foot nav {
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid var(--line);
   padding-top: 8px;
   display: flex;
   flex-wrap: wrap;
@@ -447,7 +819,7 @@ code {
   text-decoration: none;
 }
 
-.foot nav a:hover { color: var(--accent); }
+.foot nav a:hover { color: var(--indigo); }
 
 .foot p { margin: 0; }
 

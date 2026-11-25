@@ -20,17 +20,17 @@ try {
 <title>FinSight: private expense tracker for iPhone</title>
 <meta name="description" content="FinSight tracks your spending on your iPhone, with reports written on the device by Apple Intelligence. No account, no tracking.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14171C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#EEF0F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0F17" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ogphantom.github.io/finsight-site/">
 <link rel="alternate" hreflang="uk" href="https://ogphantom.github.io/finsight-site/uk/">
 <link rel="alternate" hreflang="en" href="https://ogphantom.github.io/finsight-site/">
 <link rel="alternate" hreflang="x-default" href="https://ogphantom.github.io/finsight-site/">
 <link rel="icon" type="image/png" href="img/icon-96.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/FixelFSDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=f5a50bd1">
-<script src="assets/site.js?v=9045a5f6" defer></script>
+<link rel="preload" href="assets/fonts/Commissioner-ExtraBold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=06ac59de">
+<script src="assets/site.js?v=427bc60f" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FinSight">
 <meta property="og:title" content="FinSight: private expense tracker for iPhone">
@@ -56,37 +56,137 @@ try {
   </nav>
 </header>
 
-<main class="wrap">
-<section class="hero">
-  <h1>Your spending, on your iPhone only.</h1>
-  <p class="lead">FinSight is an expense tracker for iPhone. No account, no analytics, no tracking.</p>
-  <div class="strip" aria-hidden="true">
-    <i style="--w:35;--n:0;--k:var(--c-shopping)"></i>
-    <i style="--w:30;--n:1;--k:var(--c-groceries)"></i>
-    <i style="--w:14;--n:2;--k:var(--c-home)"></i>
-    <i style="--w:5;--n:3;--k:var(--c-dining)"></i>
-    <i style="--w:5;--n:4;--k:var(--c-subscriptions)"></i>
-    <i style="--w:11;--n:5;--k:var(--ink3)"></i>
+<main class="wide">
+<section class="hero" aria-roledescription="carousel" aria-label="FinSight in three screens">
+  <div class="slides">
+    <div class="slide is-on" role="group" aria-roledescription="slide" aria-label="1 of 3">
+      <div class="copy">
+        <p class="ctx num">November</p>
+        <h1>See what’s left before the month ends</h1>
+        <p class="sub">Set a sum for the month and a limit for each category. FinSight counts every expense against them.</p>
+        <a class="pill light" href="#features">See how it works</a>
+      </div>
+      <div class="shot"><img src="img/screens/en-01-plan.webp" alt="FinSight Plan: ₴12,538 left of ₴30,000 in November, with limits for Shopping, Groceries and Coffee" width="610" height="1064"></div>
+    </div>
+    <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
+      <div class="copy">
+        <p class="ctx num">Today · ₴697.40</p>
+        <h2>Every expense in plain sight</h2>
+        <p class="sub">Apple Pay, cash and files from your bank in one list, each row with its category.</p>
+        <a class="pill light" href="#features">See how it works</a>
+      </div>
+      <div class="shot"><img src="img/screens/en-02-expenses.webp" alt="FinSight Expenses: November, ₴17,461.95, today’s and yesterday’s expenses" width="610" height="1064" loading="lazy"></div>
+    </div>
+    <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
+      <div class="copy">
+        <p class="ctx num">October 2026</p>
+        <h2>A report for every month, by itself</h2>
+        <p class="sub">On the 1st FinSight counts last month on your iPhone.</p>
+        <a class="pill light" href="#features">See how it works</a>
+      </div>
+      <div class="shot"><img src="img/screens/en-03-report.webp" alt="FinSight report for October 2026: ₴14,657.20, Groceries the largest category at 31%" width="610" height="1064" loading="lazy"></div>
+    </div>
   </div>
-  <p class="status">Coming soon to the App Store.</p>
+  <div class="controls" hidden>
+    <div class="dots">
+        <button type="button" aria-label="Show slide 1" aria-current="true"></button>
+        <button type="button" aria-label="Show slide 2" aria-current="false"></button>
+        <button type="button" aria-label="Show slide 3" aria-current="false"></button>
+    </div>
+    <div class="arrows">
+      <button type="button" data-step="-1" aria-label="Previous slide"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" data-step="1" aria-label="Next slide"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
 </section>
 
-<div class="cell list">
-  <ul class="rows">
-    <li>
-      <h2>Reports written on the device</h2>
-      <p>FinSight counts the figures on your iPhone. With Apple Intelligence, Apple’s on-device model adds a short comment.</p>
-    </li>
-    <li>
-      <h2>Apple Pay payments log themselves</h2>
-      <p>A Shortcuts automation records each contactless Apple Pay payment, from any bank, without opening the app.</p>
-    </li>
-    <li>
-      <h2>Your monobank statement</h2>
-      <p>You approve access in the mono app. FinSight can only read your statement, never pay.</p>
-    </li>
-  </ul>
+<ul class="facts">
+    <li>Coming soon to the App Store</li>
+    <li>No account</li>
+    <li>Data Not Collected</li>
+</ul>
+
+<div class="grid2" id="features">
+  <section class="card" id="apple-pay">
+    <h2>Apple Pay payments log themselves</h2>
+    <p>A Shortcuts automation records each contactless Apple Pay payment, from any bank, without opening the app.</p>
+    <div class="demo" aria-hidden="true">
+      <div class="day"><span>Today</span><span class="num">₴697.40</span></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-groceries)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 3h2.2l1.7 8h7.6l1.7-5.6H5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="14.5" r="1.2" fill="currentColor"/><circle cx="12.5" cy="14.5" r="1.2" fill="currentColor"/></svg></span><div><b>Silpo</b><small>Groceries<span class="tag">Apple Pay</span></small></div><div class="amt num">₴612.40<small>7:15 PM</small></div></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-coffee)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 7h9v3.5A4 4 0 0 1 8 14.5H7a4 4 0 0 1-4-4V7Zm9 1h1.2a1.8 1.8 0 0 1 0 3.6H12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M2 16h11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><div><b>Aroma Kava</b><small>Coffee<span class="tag">Apple Pay</span></small></div><div class="amt num">₴85.00<small>9:15 AM</small></div></div>
+    </div>
+  </section>
+  <section class="card" id="currencies">
+    <h2>Paid in another currency</h2>
+    <p>FinSight converts it at monobank’s public rate and marks it with ≈. Type what your bank charged and the ≈ goes.</p>
+    <div class="demo" aria-hidden="true">
+      <div class="day"><span>Yesterday</span><span class="num">₴1,248.00</span></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-travel)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 10.5 16 4.5l-3.4 10-2.8-3.8L2 10.5Zm7.8.2L16 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span><div><b>Airalo</b><small>Travel · €18.00</small></div><div class="amt num">≈ ₴918.00<small>6:02 PM</small></div></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-dining)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M5 2v5a2 2 0 0 0 4 0V2M7 2v14M13 2c-1.6 1.2-2.3 3.4-2.3 5.6H13V16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Puzata Hata</b><small>Dining · cash</small></div><div class="amt num">₴245.00<small>1:15 PM</small></div></div>
+    </div>
+  </section>
 </div>
+
+<section class="card split" id="reports">
+  <div class="copy">
+    <h2>A report for every month, by itself</h2>
+    <p>FinSight counts the figures on your iPhone. With Apple Intelligence, Apple’s on-device model adds a short comment.</p>
+    <ul class="checks">
+          <li class="num">The largest category: Groceries, 31%</li>
+          <li class="num">The biggest purchase: ₴3,200.00 at Ukrzaliznytsia</li>
+          <li class="num">Subscriptions: ₴806 for 4 services</li>
+    </ul>
+  </div>
+  <div class="shot"><img src="img/screens/en-03-report.webp" alt="FinSight report for October 2026: ₴14,657.20, Groceries the largest category at 31%" width="610" height="1064" loading="lazy"></div>
+</section>
+
+<div class="grid2">
+  <section class="card phonecard" id="analytics">
+    <h2>See where the money went</h2>
+    <p>Categories and shops for any period, set against the month before.</p>
+    <div class="shot"><img src="img/screens/en-04-analytics.webp" alt="FinSight Analytics: where the money went in November, Shopping first" width="610" height="1064" loading="lazy"></div>
+  </section>
+  <section class="card asks" id="search">
+    <h2>Ask in plain words</h2>
+    <p>Type a question in Search and FinSight answers it from your own expenses, on your iPhone.</p>
+    <div class="demo ask" role="img" aria-label="FinSight Search answering ‘spent on coffee in October’: ₴175, 2 purchases">
+      <div class="field-q"><span class="q"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m10.5 10.5 3.5 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>spent on coffee in October</span></div>
+      <div class="answer"><div><b class="num">Coffee in October – ₴175, 2 purchases</b><small>Open in Analytics</small></div><span class="go"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+    </div>
+    <ul class="tries">
+      <li>how much on Uklon this week</li>
+      <li>biggest purchase in September</li>
+      <li>more on groceries than in September?</li>
+    </ul>
+  </section>
+</div>
+
+<section class="band" id="privacy">
+  <h2>Your spending stays on your iPhone</h2>
+  <ul>
+      <li><b>No account</b><span>Open the app and start. Nothing to sign up for.</span></li>
+      <li><b>Data Not Collected</b><span>No analytics, no ads, no tracking, no third-party SDKs.</span></li>
+      <li><b>Your own iCloud</b><span>An optional daily backup goes to your iCloud, which we cannot see.</span></li>
+  </ul>
+  <a class="more" href="privacy.html">Read the privacy policy</a>
+</section>
+
+<section class="links">
+  <h2>And also</h2>
+  <ul>
+      <li><a href="support.html#backup">iCloud backup <span>Once a day, to your iCloud</span></a></li>
+      <li><a href="support.html#csv">CSV import <span>From your bank or another app</span></a></li>
+      <li><a href="support.html#notifications">Notifications <span>Plan, report, subscriptions</span></a></li>
+      <li><a href="support.html#face-id">Face ID lock <span>Off until you turn it on</span></a></li>
+      <li><a href="support.html#language">Ukrainian and English <span>Switch in Settings</span></a></li>
+  </ul>
+</section>
+
+<section class="closing">
+  <img src="img/icon.png" alt="" width="80" height="80" loading="lazy">
+  <h2>FinSight</h2>
+  <p>Coming soon to the App Store.</p>
+</section>
 </main>
 
 <footer class="wrap foot">

@@ -6,17 +6,17 @@
 <title>FinSight: приватний облік витрат на iPhone</title>
 <meta name="description" content="FinSight веде облік витрат на твоєму iPhone, а звіти пише Apple Intelligence просто на пристрої. Без облікового запису й стеження.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14171C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#EEF0F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E0F17" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ogphantom.github.io/finsight-site/uk/">
 <link rel="alternate" hreflang="uk" href="https://ogphantom.github.io/finsight-site/uk/">
 <link rel="alternate" hreflang="en" href="https://ogphantom.github.io/finsight-site/">
 <link rel="alternate" hreflang="x-default" href="https://ogphantom.github.io/finsight-site/">
 <link rel="icon" type="image/png" href="../img/icon-96.png">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-<link rel="preload" href="../assets/fonts/FixelFSDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=f5a50bd1">
-<script src="../assets/site.js?v=9045a5f6" defer></script>
+<link rel="preload" href="../assets/fonts/Commissioner-ExtraBold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=06ac59de">
+<script src="../assets/site.js?v=427bc60f" defer></script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FinSight">
 <meta property="og:title" content="FinSight: приватний облік витрат на iPhone">
@@ -42,37 +42,137 @@
   </nav>
 </header>
 
-<main class="wrap">
-<section class="hero">
-  <h1>Твої витрати&nbsp;— лише на&nbsp;твоєму iPhone.</h1>
-  <p class="lead">FinSight — застосунок для обліку витрат на iPhone. Без облікового запису, аналітики й&nbsp;стеження.</p>
-  <div class="strip" aria-hidden="true">
-    <i style="--w:35;--n:0;--k:var(--c-shopping)"></i>
-    <i style="--w:30;--n:1;--k:var(--c-groceries)"></i>
-    <i style="--w:14;--n:2;--k:var(--c-home)"></i>
-    <i style="--w:5;--n:3;--k:var(--c-dining)"></i>
-    <i style="--w:5;--n:4;--k:var(--c-subscriptions)"></i>
-    <i style="--w:11;--n:5;--k:var(--ink3)"></i>
+<main class="wide">
+<section class="hero" aria-roledescription="carousel" aria-label="FinSight у трьох екранах">
+  <div class="slides">
+    <div class="slide is-on" role="group" aria-roledescription="слайд" aria-label="1 з 3">
+      <div class="copy">
+        <p class="ctx num">Листопад</p>
+        <h1>Знай, скільки лишилось до кінця місяця</h1>
+        <p class="sub">Задай суму на місяць і ліміт для кожної категорії. FinSight рахує кожну витрату проти них.</p>
+        <a class="pill light" href="#features">Як це працює</a>
+      </div>
+      <div class="shot"><img src="../img/screens/uk-01-plan.webp" alt="План у FinSight: залишилось 12 538 ₴ з 30 000 ₴ у листопаді, ліміти для Покупок, Продуктів і Кави" width="610" height="1064"></div>
+    </div>
+    <div class="slide" role="group" aria-roledescription="слайд" aria-label="2 з 3" aria-hidden="true">
+      <div class="copy">
+        <p class="ctx num">Сьогодні · 697,40 ₴</p>
+        <h2>Кожна витрата на видноті</h2>
+        <p class="sub">Apple Pay, готівка й файли з банку в одному списку, у кожного рядка своя категорія.</p>
+        <a class="pill light" href="#features">Як це працює</a>
+      </div>
+      <div class="shot"><img src="../img/screens/uk-02-expenses.webp" alt="Витрати у FinSight: листопад, 17 461,95 ₴, сьогоднішні та вчорашні витрати" width="610" height="1064" loading="lazy"></div>
+    </div>
+    <div class="slide" role="group" aria-roledescription="слайд" aria-label="3 з 3" aria-hidden="true">
+      <div class="copy">
+        <p class="ctx num">Жовтень 2026</p>
+        <h2>Звіт за кожен місяць – сам</h2>
+        <p class="sub">Першого числа FinSight підсумовує минулий місяць на твоєму iPhone.</p>
+        <a class="pill light" href="#features">Як це працює</a>
+      </div>
+      <div class="shot"><img src="../img/screens/uk-03-report.webp" alt="Звіт FinSight за жовтень 2026: 14 657,20 ₴, найбільша категорія – Продукти, 31 %" width="610" height="1064" loading="lazy"></div>
+    </div>
   </div>
-  <p class="status">Скоро в App Store.</p>
+  <div class="controls" hidden>
+    <div class="dots">
+        <button type="button" aria-label="Показати слайд 1" aria-current="true"></button>
+        <button type="button" aria-label="Показати слайд 2" aria-current="false"></button>
+        <button type="button" aria-label="Показати слайд 3" aria-current="false"></button>
+    </div>
+    <div class="arrows">
+      <button type="button" data-step="-1" aria-label="Попередній слайд"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" data-step="1" aria-label="Наступний слайд"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
 </section>
 
-<div class="cell list">
-  <ul class="rows">
-    <li>
-      <h2>Звіти пишуться на пристрої</h2>
-      <p>Цифри FinSight рахує на твоєму iPhone. Якщо є Apple Intelligence, модель Apple на пристрої додає короткий коментар.</p>
-    </li>
-    <li>
-      <h2>Оплати Apple Pay записуються самі</h2>
-      <p>Автоматизація у «Швидких командах» записує кожну безконтактну оплату Apple Pay з будь-якого банку — відкривати застосунок не треба.</p>
-    </li>
-    <li>
-      <h2>Виписка monobank</h2>
-      <p>Доступ ти підтверджуєш у застосунку mono. FinSight може лише читати виписку, а не платити.</p>
-    </li>
-  </ul>
+<ul class="facts">
+    <li>Скоро в App Store</li>
+    <li>Без облікового запису</li>
+    <li>Дані не збираються</li>
+</ul>
+
+<div class="grid2" id="features">
+  <section class="card" id="apple-pay">
+    <h2>Оплати Apple Pay записуються самі</h2>
+    <p>Автоматизація у «Швидких командах» записує кожну безконтактну оплату Apple Pay з будь-якого банку, не відкриваючи застосунок.</p>
+    <div class="demo" aria-hidden="true">
+      <div class="day"><span>Сьогодні</span><span class="num">697,40 ₴</span></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-groceries)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 3h2.2l1.7 8h7.6l1.7-5.6H5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="14.5" r="1.2" fill="currentColor"/><circle cx="12.5" cy="14.5" r="1.2" fill="currentColor"/></svg></span><div><b>Сільпо</b><small>Продукти<span class="tag">Apple Pay</span></small></div><div class="amt num">612,40 ₴<small>19:15</small></div></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-coffee)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 7h9v3.5A4 4 0 0 1 8 14.5H7a4 4 0 0 1-4-4V7Zm9 1h1.2a1.8 1.8 0 0 1 0 3.6H12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M2 16h11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><div><b>Арома Кава</b><small>Кава<span class="tag">Apple Pay</span></small></div><div class="amt num">85,00 ₴<small>09:15</small></div></div>
+    </div>
+  </section>
+  <section class="card" id="currencies">
+    <h2>Оплата в іншій валюті</h2>
+    <p>FinSight переводить її за публічним курсом monobank і позначає ≈. Впиши суму, яку списав банк, – і ≈ зникне.</p>
+    <div class="demo" aria-hidden="true">
+      <div class="day"><span>Учора</span><span class="num">1 248,00 ₴</span></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-travel)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 10.5 16 4.5l-3.4 10-2.8-3.8L2 10.5Zm7.8.2L16 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span><div><b>Airalo</b><small>Подорожі · 18,00 €</small></div><div class="amt num">≈ 918,00 ₴<small>18:02</small></div></div>
+      <div class="row"><span class="glyph" style="--k:var(--c-dining)"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M5 2v5a2 2 0 0 0 4 0V2M7 2v14M13 2c-1.6 1.2-2.3 3.4-2.3 5.6H13V16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Пузата Хата</b><small>Ресторани · готівка</small></div><div class="amt num">245,00 ₴<small>13:15</small></div></div>
+    </div>
+  </section>
 </div>
+
+<section class="card split" id="reports">
+  <div class="copy">
+    <h2>Звіт за кожен місяць – сам</h2>
+    <p>Цифри FinSight рахує на твоєму iPhone. Якщо є Apple Intelligence, модель Apple на пристрої додає короткий коментар.</p>
+    <ul class="checks">
+          <li class="num">Найбільша категорія: Продукти, 31 %</li>
+          <li class="num">Найбільша покупка: 3 200,00 ₴ в Укрзалізниці</li>
+          <li class="num">Підписки: 806 ₴ за 4 сервіси</li>
+    </ul>
+  </div>
+  <div class="shot"><img src="../img/screens/uk-03-report.webp" alt="Звіт FinSight за жовтень 2026: 14 657,20 ₴, найбільша категорія – Продукти, 31 %" width="610" height="1064" loading="lazy"></div>
+</section>
+
+<div class="grid2">
+  <section class="card phonecard" id="analytics">
+    <h2>Куди пішли гроші</h2>
+    <p>Категорії й магазини за будь-який період, у порівнянні з попереднім місяцем.</p>
+    <div class="shot"><img src="../img/screens/uk-04-analytics.webp" alt="Аналітика FinSight: куди пішли гроші в листопаді, першими Покупки" width="610" height="1064" loading="lazy"></div>
+  </section>
+  <section class="card asks" id="search">
+    <h2>Питай звичайними словами</h2>
+    <p>Напиши питання в Пошуку, і FinSight відповість за твоїми ж витратами, на твоєму iPhone.</p>
+    <div class="demo ask" role="img" aria-label="Пошук FinSight відповідає на «скільки на каву в жовтні»: 175 ₴, 2 покупки">
+      <div class="field-q"><span class="q"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m10.5 10.5 3.5 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>скільки на каву в жовтні</span></div>
+      <div class="answer"><div><b class="num">Кава у жовтні – 175 ₴, 2 покупки</b><small>Відкрити в Аналітиці</small></div><span class="go"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+    </div>
+    <ul class="tries">
+      <li>скільки на Уклон цього тижня</li>
+      <li>найбільша покупка у вересні</li>
+      <li>на продукти більше, ніж у вересні?</li>
+    </ul>
+  </section>
+</div>
+
+<section class="band" id="privacy">
+  <h2>Твої витрати лишаються на твоєму iPhone</h2>
+  <ul>
+      <li><b>Без облікового запису</b><span>Відкрий застосунок і починай. Реєструватися нікуди не треба.</span></li>
+      <li><b>Дані не збираються</b><span>Без аналітики, реклами, стеження й сторонніх SDK.</span></li>
+      <li><b>Твій iCloud</b><span>Щоденна резервна копія за бажанням іде у твій iCloud, ми її не бачимо.</span></li>
+  </ul>
+  <a class="more" href="privacy.html">Політика конфіденційності</a>
+</section>
+
+<section class="links">
+  <h2>А ще</h2>
+  <ul>
+      <li><a href="support.html#backup">Копія в iCloud <span>Раз на день, у твій iCloud</span></a></li>
+      <li><a href="support.html#csv">Імпорт з CSV <span>З банку чи іншого застосунку</span></a></li>
+      <li><a href="support.html#notifications">Сповіщення <span>План, звіт, підписки</span></a></li>
+      <li><a href="support.html#face-id">Блокування Face ID <span>Вимкнене, доки не ввімкнеш</span></a></li>
+      <li><a href="support.html#language">Українська й англійська <span>Перемикай у Налаштуваннях</span></a></li>
+  </ul>
+</section>
+
+<section class="closing">
+  <img src="../img/icon.png" alt="" width="80" height="80" loading="lazy">
+  <h2>FinSight</h2>
+  <p>Скоро в App Store.</p>
+</section>
 </main>
 
 <footer class="wrap foot">
